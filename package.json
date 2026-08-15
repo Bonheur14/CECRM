@@ -1,0 +1,9 @@
+{
+  "name": "cecrm",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "formidable": "^3.5.4",
+    "form-data": "^4.0.4"
+  }
+}

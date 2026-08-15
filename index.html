@@ -1,0 +1,3648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CECRM | Cercle d’Entraide des Congolais Résidents au Maroc</title>
+
+    <!-- =========================================================
+         BOOTSTRAP 5
+    ========================================================== -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           VARIABLES
+        ========================================================== */
+
+        :root {
+            --green: #08783f;
+            --green-dark: #04552d;
+            --yellow: #ffd800;
+            --red: #e30613;
+            --dark: #10251a;
+            --light: #f7faf8;
+            --white: #ffffff;
+            --text: #25332b;
+            --muted: #68756d;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================================
+           TOP BAR
+        ========================================================== */
+
+        .topbar {
+            background: var(--dark);
+            color: #ffffff;
+            font-size: 13px;
+            padding: 9px 0;
+        }
+
+        .topbar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================== */
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: var(--green) !important;
+        }
+
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+
+        .brand-text {
+            line-height: 1.1;
+        }
+
+
+        .brand-text strong {
+            display: block;
+            font-size: 18px;
+        }
+
+
+        .brand-text small {
+            color: #555;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+
+        .nav-link {
+            color: #26382e !important;
+            font-weight: 600;
+            margin: 0 5px;
+            position: relative;
+        }
+
+
+        .nav-link:hover {
+            color: var(--green) !important;
+        }
+
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 8px;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: 0.3s;
+        }
+
+
+        .nav-link:hover::after {
+            width: calc(100% - 16px);
+        }
+
+
+        .btn-member {
+            background: var(--green);
+            border: none;
+            color: #ffffff;
+            padding: 11px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+
+        .btn-member:hover {
+            background: var(--green-dark);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           FLAG STRIPE
+        ========================================================== */
+
+        .flag-stripe {
+            height: 6px;
+            background: linear-gradient(
+                to right,
+                var(--green) 0 33.33%,
+                var(--yellow) 33.33% 66.66%,
+                var(--red) 66.66% 100%
+            );
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .hero {
+            min-height: 680px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(4, 85, 45, 0.96),
+                    rgba(8, 120, 63, 0.88)
+                ),
+                url("image.png") center/contain no-repeat;
+        }
+
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 55px solid rgba(255, 216, 0, 0.15);
+            border-radius: 50%;
+            right: -180px;
+            top: -130px;
+        }
+
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 40px solid rgba(227, 6, 19, 0.13);
+            border-radius: 50%;
+            left: -180px;
+            bottom: -180px;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+        }
+
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 68px);
+            font-weight: 800;
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+
+        .hero p {
+            max-width: 680px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+
+        .btn-primary-custom {
+            background: var(--yellow);
+            color: #172519;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            background: #ffffff;
+            color: var(--green);
+        }
+
+
+        .btn-outline-custom {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+
+
+        .btn-outline-custom:hover {
+            background: #ffffff;
+            color: var(--green);
+        }
+
+
+        /* =========================================================
+           SECTIONS
+        ========================================================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+
+        .section-title .mini {
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+
+        .section-title h2 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-top: 10px;
+        }
+
+
+        .section-title p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: #66736b;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================== */
+
+        .about {
+            background: #ffffff;
+        }
+
+
+        .about-logo {
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+
+        .about-logo img {
+            width: 230px;
+            max-width: 80%;
+        }
+
+
+        .about-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: var(--light);
+            height: 100%;
+            border-left: 5px solid var(--green);
+        }
+
+
+        .about-card h3 {
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+
+        .about-card p {
+            line-height: 1.9;
+            color: #617067;
+        }
+
+
+        /* =========================================================
+           VALUES
+        ========================================================== */
+
+        .values {
+            background: #f5f8f6;
+        }
+
+
+        .value-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 18px;
+            height: 100%;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #edf0ee;
+        }
+
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: auto auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf6ef;
+            color: var(--green);
+            font-size: 30px;
+        }
+
+
+        .value-card h4 {
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+
+        .value-card p {
+            color: #718078;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           BENEFITS
+        ========================================================== */
+
+        .benefits {
+            background: #ffffff;
+        }
+
+
+        .benefit-card {
+            border-radius: 20px;
+            padding: 28px;
+            background: #ffffff;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid #edf1ee;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--green);
+        }
+
+
+        .benefit-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #d9ebe0;
+            line-height: 1;
+        }
+
+
+        .benefit-card h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--green);
+            margin: 15px 0 10px;
+        }
+
+
+        .benefit-card p {
+            color: #68756d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================== */
+
+        .stats {
+            background: var(--dark);
+            color: #ffffff;
+            padding: 60px 0;
+        }
+
+
+        .stat-box {
+            text-align: center;
+            padding: 15px;
+        }
+
+
+        .stat-box i {
+            font-size: 30px;
+            color: var(--yellow);
+        }
+
+
+        .stat-box h3 {
+            font-size: 38px;
+            font-weight: 800;
+            margin: 10px 0 5px;
+        }
+
+
+        .stat-box p {
+            color: #b8c5bd;
+            margin: 0;
+        }
+
+
+        /* =========================================================
+           MEMBERSHIP
+        ========================================================== */
+
+        .membership {
+            background: linear-gradient(
+                rgba(4, 85, 45, 0.98),
+                rgba(4, 85, 45, 0.98)
+            );
+            position: relative;
+        }
+
+
+        .membership .section-title h2,
+        .membership .section-title p,
+        .membership .section-title .mini {
+            color: #ffffff;
+        }
+
+
+        .membership-info {
+            color: #ffffff;
+            padding: 25px;
+        }
+
+
+        .membership-info h3 {
+            font-weight: 800;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+
+        .membership-info p {
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+
+        .membership-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+
+        .membership-list li {
+            margin-bottom: 17px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+
+        .membership-list i {
+            color: var(--yellow);
+            font-size: 20px;
+        }
+
+
+        .membership-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================================================
+           FORMULAIRE
+        ========================================================== */
+
+        .form-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--green);
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5ece8;
+        }
+
+
+        .form-section-title i {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #eaf6ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .form-label {
+            font-weight: 700;
+            color: #304139;
+            font-size: 14px;
+        }
+
+
+        .required {
+            color: var(--red);
+        }
+
+
+        .form-control,
+        .form-select {
+            min-height: 48px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            border: 1px solid #dbe4de;
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 0.2rem rgba(8, 120, 63, 0.12);
+        }
+
+
+        textarea.form-control {
+            min-height: 120px;
+        }
+
+
+        .conditions-box {
+            background: #f7faf8;
+            border: 1px solid #e0e9e3;
+            padding: 15px 18px;
+            border-radius: 10px;
+        }
+
+
+        .conditions-box .form-check-label {
+            font-size: 13px;
+            color: #59665f;
+            line-height: 1.6;
+        }
+
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+
+        .form-check-input:checked {
+            background-color: var(--green);
+            border-color: var(--green);
+        }
+
+
+        .form-note {
+            color: #7b8780;
+            font-size: 12px;
+            text-align: center;
+        }
+
+
+        .btn-submit {
+            background: var(--green);
+            color: #ffffff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 800;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+
+        .btn-submit:hover {
+            background: var(--green-dark);
+        }
+
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+
+        /* =========================================================
+           PHOTO UPLOAD
+        ========================================================== */
+
+        .photo-upload-box {
+            border: 2px dashed #b8d8c4;
+            background: #f8fbf9;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: 0.3s;
+        }
+
+
+        .photo-upload-box:hover {
+            border-color: var(--green);
+            background: #f1f9f4;
+        }
+
+
+        .photo-preview {
+            width: 120px;
+            height: 140px;
+            border-radius: 12px;
+            background: #e9f3ed;
+            border: 2px solid #d1e5d8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+
+        .photo-preview i {
+            font-size: 65px;
+            color: var(--green);
+        }
+
+
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+
+        .photo-upload-content {
+            flex: 1;
+        }
+
+
+        .photo-upload-content p {
+            color: var(--green);
+        }
+
+
+        .photo-upload-content .btn {
+            border-radius: 25px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           ALERTS
+        ========================================================== */
+
+        #successMessage {
+            border: none;
+            border-left: 4px solid var(--green);
+        }
+
+
+        #errorMessage {
+            border: none;
+            border-left: 4px solid var(--red);
+        }
+
+
+        #memberNumber {
+            color: var(--green);
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================== */
+
+        .contact {
+            background: #f6f8f7;
+        }
+
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .contact-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: #eaf6ef;
+            color: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+
+        .contact-item h5 {
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+
+        .contact-item p {
+            margin: 0;
+            color: #6d7972;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        footer {
+            background: #071b10;
+            color: #ffffff;
+            padding: 60px 0 25px;
+        }
+
+
+        .footer-logo {
+            width: 75px;
+            margin-bottom: 15px;
+        }
+
+
+        footer h5 {
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+
+        footer p,
+        footer li {
+            color: #aab7af;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+
+        footer a {
+            color: #aab7af;
+            text-decoration: none;
+        }
+
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+
+        .social a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #34513f;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-right: 7px;
+            transition: 0.3s;
+        }
+
+
+        .social a:hover {
+            background: var(--green);
+            border-color: var(--green);
+            color: #ffffff;
+        }
+
+
+        .copyright {
+            border-top: 1px solid #1e3527;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: #849289;
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================== */
+
+        #backTop {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: var(--green);
+            color: #ffffff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media (max-width: 991px) {
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .navbar-brand .brand-text {
+                display: none;
+            }
+
+            .hero-buttons a {
+                margin-bottom: 10px;
+            }
+
+            .btn-outline-custom {
+                margin-left: 0;
+            }
+        }
+
+
+        @media (max-width: 767px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .membership-form {
+                padding: 25px;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+
+
+        @media (max-width: 576px) {
+
+            .logo {
+                width: 105px;
+                height: 105px;
+            }
+
+            .photo-upload-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .photo-preview {
+                width: 110px;
+                height: 130px;
+            }
+
+            .photo-upload-content {
+                width: 100%;
+            }
+
+            .btn-outline-custom {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         TOP BAR
+    ========================================================== -->
+
+    <div class="topbar">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+                <div>
+                    <i class="bi bi-heart-fill me-1"></i>
+                    Ensemble, nous sommes plus forts !
+                </div>
+
+                <div>
+
+                    <a href="tel:+212601155420" class="me-3">
+                        <i class="bi bi-telephone-fill me-1"></i>
+                        +212 601-155420
+                    </a>
+
+                    <a href="tel:+212629505220">
+                        <i class="bi bi-telephone-fill me-1"></i>
+                        +212 629-505220
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#accueil">
+
+                <img
+                    src="image.png"
+                    class="logo"
+                    alt="Logo CECRM"
+                >
+
+                <div class="brand-text">
+
+                    <strong>CECRM</strong>
+
+                    <small>
+                        CERCLE D’ENTRAIDE DES CONGOLAIS<br>
+                        RÉSIDENTS AU MAROC
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav"
+                aria-controls="mainNav"
+                aria-expanded="false"
+                aria-label="Ouvrir le menu"
+            >
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div
+                class="collapse navbar-collapse"
+                id="mainNav"
+            >
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#association">
+                            L'association
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#valeurs">
+                            Nos valeurs
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#avantages">
+                            Avantages
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                        <a
+                            href="#adhesion"
+                            class="btn btn-member"
+                        >
+                            <i class="bi bi-person-plus-fill me-1"></i>
+                            Devenir membre
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <div class="flag-stripe"></div>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero" id="accueil">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 hero-content">
+
+                    <div class="hero-badge">
+
+                        <i class="bi bi-people-fill me-2"></i>
+
+                        ASSOCIATION DES CONGOLAIS AU MAROC
+
+                    </div>
+
+
+                    <h1>
+
+                        Ensemble pour une
+
+                        <span>
+                            communauté plus forte.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Le Cercle d’Entraide des Congolais Résidents au Maroc
+                        rassemble, accompagne et soutient les Congolais vivant
+                        au Maroc dans un esprit de solidarité, d'entraide et
+                        de fraternité.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#adhesion"
+                            class="btn-primary-custom"
+                        >
+
+                            <i class="bi bi-person-plus-fill me-2"></i>
+
+                            Rejoindre l'association
+
+                        </a>
+
+
+                        <a
+                            href="#association"
+                            class="btn-outline-custom"
+                        >
+
+                            Découvrir le CECRM
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================== -->
+
+    <section
+        class="about"
+        id="association"
+    >
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="mini">
+                    Qui sommes-nous ?
+                </div>
+
+                <h2>
+                    Le CECRM
+                </h2>
+
+                <p>
+                    Une communauté fondée sur la solidarité, le respect
+                    et l'entraide entre Congolais résidents au Maroc.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4 align-items-center">
+
+                <div class="col-lg-5">
+
+                    <div class="about-logo">
+
+                        <img
+                            src="image.png"
+                            alt="Logo Cercle d'Entraide des Congolais Résidents au Maroc"
+                        >
+
+                        <h4 class="mt-4 fw-bold text-success">
+                            Cercle d'Entraide
+                        </h4>
+
+                        <p class="text-muted mb-0">
+                            Des Congolais Résidents au Maroc
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-7">
+
+                    <div class="about-card">
+
+                        <h3>
+                            Notre mission
+                        </h3>
+
+                        <p>
+                            Le Cercle d’Entraide des Congolais Résidents au Maroc
+                            a pour objectif de créer un cadre de solidarité et
+                            d'accompagnement pour les Congolais établis au Maroc.
+                        </p>
+
+                        <p>
+                            Notre association encourage la coopération entre les
+                            membres, l'entraide dans les moments difficiles,
+                            l'accompagnement social et professionnel ainsi que
+                            le développement personnel et collectif.
+                        </p>
+
+                        <p class="mb-0">
+                            Chaque membre contribue à construire une communauté
+                            plus unie, plus solidaire et plus forte.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         VALEURS
+    ========================================================== -->
+
+    <section
+        class="values"
+        id="valeurs"
+    >
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="mini">
+                    Ce qui nous rassemble
+                </div>
+
+                <h2>
+                    Nos valeurs
+                </h2>
+
+                <p>
+                    Des valeurs simples qui permettent à notre communauté
+                    de grandir ensemble.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </div>
+
+                        <h4>
+                            Entraide
+                        </h4>
+
+                        <p>
+                            Nous nous soutenons mutuellement dans les
+                            moments importants de la vie.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <h4>
+                            Solidarité
+                        </h4>
+
+                        <p>
+                            Une communauté unie pour favoriser l'entraide
+                            et la cohésion entre ses membres.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+
+                        <h4>
+                            Fraternité
+                        </h4>
+
+                        <p>
+                            Nous créons des liens humains fondés sur le
+                            respect et la fraternité.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            <i class="bi bi-trophy-fill"></i>
+                        </div>
+
+                        <h4>
+                            Réussite
+                        </h4>
+
+                        <p>
+                            Nous encourageons le développement personnel,
+                            professionnel et collectif.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         AVANTAGES
+    ========================================================== -->
+
+    <section
+        class="benefits"
+        id="avantages"
+    >
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="mini">
+                    Pourquoi nous rejoindre ?
+                </div>
+
+                <h2>
+                    Avantages du membre
+                </h2>
+
+                <p>
+                    Devenir membre du CECRM, c'est intégrer une communauté
+                    active et bénéficier d'un réseau de solidarité.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            01
+                        </div>
+
+                        <h4>
+                            Entraide et solidarité
+                        </h4>
+
+                        <p>
+                            Soutien moral et matériel entre les membres
+                            de la communauté.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            02
+                        </div>
+
+                        <h4>
+                            Réactivité
+                        </h4>
+
+                        <p>
+                            Une communauté capable de répondre rapidement
+                            aux situations de besoin ou d'urgence.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            03
+                        </div>
+
+                        <h4>
+                            Accompagnement
+                        </h4>
+
+                        <p>
+                            Orientation et accompagnement dans les démarches
+                            et différentes situations de la vie quotidienne.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            04
+                        </div>
+
+                        <h4>
+                            Réseau communautaire
+                        </h4>
+
+                        <p>
+                            Développez votre réseau grâce aux rencontres
+                            et aux échanges entre membres.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            05
+                        </div>
+
+                        <h4>
+                            Activités collectives
+                        </h4>
+
+                        <p>
+                            Participez à des événements, rencontres et
+                            activités organisés par l'association.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="benefit-card">
+
+                        <div class="benefit-number">
+                            06
+                        </div>
+
+                        <h4>
+                            Développement
+                        </h4>
+
+                        <p>
+                            Contribuez au développement personnel et collectif
+                            de notre communauté.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         STATISTIQUES
+    ========================================================== -->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <i class="bi bi-people-fill"></i>
+
+                        <h3
+                            class="counter"
+                            data-target="20"
+                        >
+                            0
+                        </h3>
+
+                        <p>
+                            Membres
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <i class="bi bi-heart-fill"></i>
+
+                        <h3
+                            class="counter"
+                            data-target="50"
+                        >
+                            0
+                        </h3>
+
+                        <p>
+                            Actions d'entraide
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <i class="bi bi-calendar-event-fill"></i>
+
+                        <h3
+                            class="counter"
+                            data-target="20"
+                        >
+                            0
+                        </h3>
+
+                        <p>
+                            Activités
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <h3>
+                            MA
+                        </h3>
+
+                        <p>
+                            Présence au Maroc
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ADHÉSION
+    ========================================================== -->
+
+    <section
+        class="membership"
+        id="adhesion"
+    >
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="mini">
+                    REJOIGNEZ-NOUS
+                </div>
+
+                <h2>
+                    Devenir membre du CECRM
+                </h2>
+
+                <p>
+                    Remplissez le formulaire ci-dessous afin de soumettre
+                    votre demande d'adhésion à notre association.
+                </p>
+
+            </div>
+
+
+            <div class="row g-5 align-items-center">
+
+                <!-- =====================================================
+                     INFORMATIONS
+                ====================================================== -->
+
+                <div class="col-lg-5">
+
+                    <div class="membership-info">
+
+                        <h3>
+                            Faites partie de la famille.
+                        </h3>
+
+                        <p>
+                            En rejoignant le Cercle d’Entraide des Congolais
+                            Résidents au Maroc, vous intégrez une communauté
+                            fondée sur la solidarité, l'entraide et la fraternité.
+                        </p>
+
+
+                        <ul class="membership-list">
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                <span>
+                                    Intégrer la communauté des membres du CECRM.
+                                </span>
+                            </li>
+
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                <span>
+                                    Participer aux activités et événements
+                                    de l'association.
+                                </span>
+                            </li>
+
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                <span>
+                                    Bénéficier de l'entraide communautaire.
+                                </span>
+                            </li>
+
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                <span>
+                                    Participer aux actions de solidarité.
+                                </span>
+                            </li>
+
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                <span>
+                                    Développer votre réseau au sein de
+                                    la communauté congolaise au Maroc.
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================================
+                     FORMULAIRE
+                ====================================================== -->
+
+                <div class="col-lg-7">
+
+                    <div class="membership-form">
+
+
+                        <!-- MESSAGE SUCCÈS -->
+
+                        <div
+                            id="successMessage"
+                            class="alert alert-success d-none"
+                        >
+
+                            <div class="d-flex align-items-start gap-3">
+
+                                <i class="bi bi-check-circle-fill fs-3"></i>
+
+                                <div>
+
+                                    <strong>
+                                        Demande d'adhésion envoyée avec succès !
+                                    </strong>
+
+                                    <p class="mb-1 mt-2">
+                                        Votre demande a bien été transmise
+                                        à l'association.
+                                    </p>
+
+                                    <p class="mb-0">
+
+                                        Votre numéro de préinscription :
+
+                                        <strong id="memberNumber"></strong>
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE ERREUR -->
+
+                        <div
+                            id="errorMessage"
+                            class="alert alert-danger d-none"
+                        >
+
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                            <span id="errorText">
+                                Une erreur est survenue.
+                            </span>
+
+                        </div>
+
+
+                        <!-- FORMULAIRE -->
+
+                        <form
+                            id="membershipForm"
+                            method="POST"
+                            enctype="multipart/form-data"
+                            novalidate
+                        >
+
+
+                            <!-- =================================================
+                                 INFORMATIONS PERSONNELLES
+                            ================================================== -->
+
+                            <div class="form-section-title">
+
+                                <i class="bi bi-person-fill"></i>
+
+                                <span>
+                                    Informations personnelles
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-3">
+
+
+                                <!-- NOM -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="nom"
+                                        class="form-label"
+                                    >
+                                        Nom
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="nom"
+                                        name="nom"
+                                        placeholder="Votre nom"
+                                        autocomplete="family-name"
+                                        required
+                                    >
+
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner votre nom.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- PRÉNOM -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="prenom"
+                                        class="form-label"
+                                    >
+                                        Prénom
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="prenom"
+                                        name="prenom"
+                                        placeholder="Votre prénom"
+                                        autocomplete="given-name"
+                                        required
+                                    >
+
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner votre prénom.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- =================================================
+                                     PHOTO
+                                ================================================== -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        for="photo"
+                                        class="form-label"
+                                    >
+                                        Photo d'identité
+                                        <span class="required">*</span>
+                                    </label>
+
+
+                                    <div class="photo-upload-box">
+
+
+                                        <!-- APERÇU -->
+
+                                        <div class="photo-preview">
+
+                                            <i
+                                                class="bi bi-person-circle"
+                                                id="photoIcon"
+                                            ></i>
+
+                                            <img
+                                                id="photoPreview"
+                                                src=""
+                                                alt="Aperçu de votre photo"
+                                            >
+
+                                        </div>
+
+
+                                        <!-- UPLOAD -->
+
+                                        <div class="photo-upload-content">
+
+                                            <p class="fw-bold mb-2">
+                                                Ajouter votre photo
+                                            </p>
+
+
+                                            <small
+                                                class="text-muted d-block mb-3"
+                                            >
+                                                Format accepté :
+                                                JPG, JPEG ou PNG.
+                                                <br>
+                                                Taille maximale : 4 Mo.
+                                            </small>
+
+
+                                            <label
+                                                for="photo"
+                                                class="btn btn-outline-success"
+                                            >
+
+                                                <i
+                                                    class="bi bi-camera-fill me-2"
+                                                ></i>
+
+                                                Choisir une photo
+
+                                            </label>
+
+
+                                            <input
+                                                type="file"
+                                                id="photo"
+                                                name="photo"
+                                                accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                                                required
+                                                hidden
+                                            >
+
+
+                                            <div
+                                                id="photoName"
+                                                class="small text-muted mt-2"
+                                            ></div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div
+                                        id="photoError"
+                                        class="text-danger small mt-2 d-none"
+                                    >
+                                        Veuillez sélectionner une photo valide.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TÉLÉPHONE -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="telephone"
+                                        class="form-label"
+                                    >
+                                        Téléphone
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        class="form-control"
+                                        id="telephone"
+                                        name="telephone"
+                                        placeholder="+212 6XX XXX XXX"
+                                        autocomplete="tel"
+                                        maxlength="20"
+                                        required
+                                    >
+
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner un numéro valide.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- EMAIL -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="email"
+                                        class="form-label"
+                                    >
+                                        Adresse e-mail
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        name="email"
+                                        placeholder="exemple@email.com"
+                                        autocomplete="email"
+                                    >
+
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner une adresse e-mail valide.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- DATE DE NAISSANCE -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="dateNaissance"
+                                        class="form-label"
+                                    >
+                                        Date de naissance
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        class="form-control"
+                                        id="dateNaissance"
+                                        name="dateNaissance"
+                                    >
+
+                                </div>
+
+
+                                <!-- SITUATION -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="situation"
+                                        class="form-label"
+                                    >
+                                        Situation
+                                    </label>
+
+                                    <select
+                                        class="form-select"
+                                        id="situation"
+                                        name="situation"
+                                    >
+
+                                        <option value="">
+                                            Sélectionner votre situation
+                                        </option>
+
+                                        <option value="Étudiant(e)">
+                                            Étudiant(e)
+                                        </option>
+
+                                        <option value="Salarié(e)">
+                                            Salarié(e)
+                                        </option>
+
+                                        <option value="Entrepreneur">
+                                            Entrepreneur
+                                        </option>
+
+                                        <option value="Commerçant(e)">
+                                            Commerçant(e)
+                                        </option>
+
+                                        <option value="Sans emploi">
+                                            Sans emploi
+                                        </option>
+
+                                        <option value="Autre">
+                                            Autre
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <!-- PROFESSION -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="fonction"
+                                        class="form-label"
+                                    >
+                                        Fonction / Profession
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="fonction"
+                                        name="fonction"
+                                        placeholder="Votre profession"
+                                        required
+                                    >
+
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner votre profession.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- VILLE -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        for="ville"
+                                        class="form-label"
+                                    >
+                                        Ville de résidence
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <select
+                                        class="form-select"
+                                        id="ville"
+                                        name="ville"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Choisir votre ville
+                                        </option>
+
+                                        <option value="Casablanca">
+                                            Casablanca
+                                        </option>
+
+                                        <option value="Rabat">
+                                            Rabat
+                                        </option>
+
+                                        <option value="Marrakech">
+                                            Marrakech
+                                        </option>
+
+                                        <option value="Tanger">
+                                            Tanger
+                                        </option>
+
+                                        <option value="Fès">
+                                            Fès
+                                        </option>
+
+                                        <option value="Meknès">
+                                            Meknès
+                                        </option>
+
+                                        <option value="Agadir">
+                                            Agadir
+                                        </option>
+
+                                        <option value="Oujda">
+                                            Oujda
+                                        </option>
+
+                                        <option value="Autre">
+                                            Autre
+                                        </option>
+
+                                    </select>
+
+                                    <div class="invalid-feedback">
+                                        Veuillez choisir votre ville.
+                                    </div>
+
+                                </div>
+
+
+                                <!-- MOTIVATION -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        for="motivation"
+                                        class="form-label"
+                                    >
+                                        Pourquoi souhaitez-vous rejoindre
+                                        le CECRM ?
+                                    </label>
+
+                                    <textarea
+                                        class="form-control"
+                                        id="motivation"
+                                        name="motivation"
+                                        rows="4"
+                                        maxlength="1000"
+                                        placeholder="Présentez brièvement votre motivation..."
+                                    ></textarea>
+
+                                    <div class="text-end small text-muted mt-1">
+
+                                        <span id="motivationCount">
+                                            0
+                                        </span>/1000
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- CONDITIONS -->
+
+                                <div class="col-12">
+
+                                    <div class="conditions-box">
+
+                                        <div class="form-check">
+
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="conditions"
+                                                name="conditions"
+                                                value="1"
+                                                required
+                                            >
+
+                                            <label
+                                                class="form-check-label"
+                                                for="conditions"
+                                            >
+
+                                                J'accepte les conditions
+                                                d'adhésion et le règlement
+                                                de l'association.
+
+                                                <span class="required">*</span>
+
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- BOUTON -->
+
+                                <div class="col-12 mt-3">
+
+                                    <button
+                                        type="submit"
+                                        id="submitButton"
+                                        class="btn-submit"
+                                    >
+
+                                        <span id="buttonText">
+
+                                            <i
+                                                class="bi bi-person-check-fill me-2"
+                                            ></i>
+
+                                            Envoyer ma demande d'adhésion
+
+                                        </span>
+
+
+                                        <span
+                                            id="buttonLoading"
+                                            class="d-none"
+                                        >
+
+                                            <span
+                                                class="spinner-border spinner-border-sm me-2"
+                                            ></span>
+
+                                            Envoi en cours...
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+
+                                <!-- NOTE -->
+
+                                <div class="col-12">
+
+                                    <p class="form-note mb-0">
+
+                                        <i
+                                            class="bi bi-shield-check me-1"
+                                        ></i>
+
+                                        Vos informations sont transmises
+                                        uniquement dans le cadre du traitement
+                                        de votre demande d'adhésion.
+
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================== -->
+
+    <section
+        class="contact"
+        id="contact"
+    >
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="mini">
+                    Nous contacter
+                </div>
+
+                <h2>
+                    Restons en contact
+                </h2>
+
+                <p>
+                    Une question concernant l'association ou votre adhésion ?
+                    Notre équipe est à votre disposition.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <div class="contact-card">
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>
+                                    Téléphone
+                                </h5>
+
+                                <p>
+                                    +212 601-155420
+                                    <br>
+                                    +212 629-505220
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>
+                                    Localisation
+                                </h5>
+
+                                <p>
+                                    Maroc
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item mb-0">
+
+                            <div class="contact-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>
+                                    Association
+                                </h5>
+
+                                <p>
+                                    Cercle d’Entraide des Congolais
+                                    Résidents au Maroc
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="contact-card">
+
+                        <h4 class="fw-bold mb-4">
+                            Besoin d'aide ?
+                        </h4>
+
+                        <p
+                            class="text-muted"
+                            style="line-height: 1.8;"
+                        >
+                            Pour toute urgence concernant un membre,
+                            veuillez contacter immédiatement l'association
+                            aux numéros indiqués.
+                        </p>
+
+
+                        <div
+                            class="p-4 rounded-4 mt-4"
+                            style="background:#eaf6ef;"
+                        >
+
+                            <div class="d-flex gap-3">
+
+                                <i
+                                    class="bi bi-exclamation-circle-fill text-success fs-3"
+                                ></i>
+
+                                <div>
+
+                                    <strong class="d-block mb-1">
+                                        Assistance aux membres
+                                    </strong>
+
+                                    <span class="text-muted small">
+                                        Nous faisons de l'entraide et de la
+                                        solidarité une priorité.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row g-5">
+
+                <div class="col-lg-5">
+
+                    <img
+                        src="image.png"
+                        class="footer-logo"
+                        alt="CECRM"
+                    >
+
+                    <h5>
+                        CECRM
+                    </h5>
+
+                    <p>
+                        Cercle d’Entraide des Congolais Résidents au Maroc.
+                        Ensemble, nous construisons une communauté fondée
+                        sur la solidarité, l'entraide et la fraternité.
+                    </p>
+
+
+                    <div class="social mt-4">
+
+                        <a
+                            href="#"
+                            aria-label="Facebook"
+                        >
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="WhatsApp"
+                        >
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <h5>
+                        Navigation
+                    </h5>
+
+                    <ul>
+
+                        <li>
+                            <a href="#accueil">
+                                Accueil
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#association">
+                                L'association
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#valeurs">
+                                Nos valeurs
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#avantages">
+                                Avantages
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#adhesion">
+                                Adhésion
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="col-6 col-lg-4">
+
+                    <h5>
+                        Contact
+                    </h5>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-telephone me-2"></i>
+                            +212 601-155420
+                        </li>
+
+                        <li>
+                            <i class="bi bi-telephone me-2"></i>
+                            +212 629-505220
+                        </li>
+
+                        <li>
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Maroc
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © <span id="year"></span>
+
+                BONHEUR ESPOIR
+
+                CECRM — Cercle d’Entraide des Congolais Résidents au Maroc.
+
+                Tous droits réservés.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        id="backTop"
+        aria-label="Retour en haut"
+    >
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+
+    <!-- =========================================================
+         BOOTSTRAP JS
+    ========================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+    <!-- =========================================================
+         JAVASCRIPT CECRM
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           ANNÉE AUTOMATIQUE
+        ========================================================== */
+
+        const yearElement =
+            document.getElementById("year");
+
+        if (yearElement) {
+            yearElement.textContent =
+                new Date().getFullYear();
+        }
+
+
+        /* =========================================================
+           TÉLÉPHONE
+           BLOQUER LES LETTRES
+        ========================================================== */
+
+        const phoneInput =
+            document.getElementById("telephone");
+
+        if (phoneInput) {
+
+            phoneInput.addEventListener(
+                "input",
+                function () {
+
+                    this.value =
+                        this.value.replace(
+                            /[^0-9+\- ()]/g,
+                            ""
+                        );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           ÉLÉMENTS DU FORMULAIRE
+        ========================================================== */
+
+        const membershipForm =
+            document.getElementById(
+                "membershipForm"
+            );
+
+        const photoInput =
+            document.getElementById(
+                "photo"
+            );
+
+        const photoPreview =
+            document.getElementById(
+                "photoPreview"
+            );
+
+        const photoIcon =
+            document.getElementById(
+                "photoIcon"
+            );
+
+        const photoName =
+            document.getElementById(
+                "photoName"
+            );
+
+        const photoError =
+            document.getElementById(
+                "photoError"
+            );
+
+        const successMessage =
+            document.getElementById(
+                "successMessage"
+            );
+
+        const errorMessage =
+            document.getElementById(
+                "errorMessage"
+            );
+
+        const errorText =
+            document.getElementById(
+                "errorText"
+            );
+
+        const memberNumber =
+            document.getElementById(
+                "memberNumber"
+            );
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+        const buttonText =
+            document.getElementById(
+                "buttonText"
+            );
+
+        const buttonLoading =
+            document.getElementById(
+                "buttonLoading"
+            );
+
+        const motivation =
+            document.getElementById(
+                "motivation"
+            );
+
+        const motivationCount =
+            document.getElementById(
+                "motivationCount"
+            );
+
+
+        /* =========================================================
+           PHOTO
+        ========================================================== */
+
+        if (photoInput) {
+
+            photoInput.addEventListener(
+                "change",
+                function () {
+
+                    const file =
+                        this.files[0];
+
+
+                    if (photoError) {
+                        photoError.classList.add(
+                            "d-none"
+                        );
+                    }
+
+
+                    if (!file) {
+
+                        if (photoPreview) {
+                            photoPreview.style.display =
+                                "none";
+                        }
+
+                        if (photoIcon) {
+                            photoIcon.style.display =
+                                "block";
+                        }
+
+                        if (photoName) {
+                            photoName.textContent =
+                                "";
+                        }
+
+                        return;
+                    }
+
+
+                    /* Formats autorisés */
+
+                    const allowedTypes = [
+                        "image/jpeg",
+                        "image/jpg",
+                        "image/png"
+                    ];
+
+
+                    if (
+                        !allowedTypes.includes(
+                            file.type
+                        )
+                    ) {
+
+                        if (photoError) {
+
+                            photoError.textContent =
+                                "Veuillez sélectionner une photo JPG, JPEG ou PNG.";
+
+                            photoError.classList.remove(
+                                "d-none"
+                            );
+
+                        }
+
+                        this.value = "";
+
+                        if (photoPreview) {
+                            photoPreview.style.display =
+                                "none";
+                        }
+
+                        if (photoIcon) {
+                            photoIcon.style.display =
+                                "block";
+                        }
+
+                        if (photoName) {
+                            photoName.textContent =
+                                "";
+                        }
+
+                        return;
+                    }
+
+
+                    /* Taille maximale 4 Mo */
+
+                    if (
+                        file.size >
+                        4 * 1024 * 1024
+                    ) {
+
+                        if (photoError) {
+
+                            photoError.textContent =
+                                "La photo ne doit pas dépasser 4 Mo.";
+
+                            photoError.classList.remove(
+                                "d-none"
+                            );
+
+                        }
+
+                        this.value = "";
+
+                        if (photoPreview) {
+                            photoPreview.style.display =
+                                "none";
+                        }
+
+                        if (photoIcon) {
+                            photoIcon.style.display =
+                                "block";
+                        }
+
+                        if (photoName) {
+                            photoName.textContent =
+                                "";
+                        }
+
+                        return;
+                    }
+
+
+                    /* Nom du fichier */
+
+                    if (photoName) {
+
+                        photoName.textContent =
+                            "Photo sélectionnée : " +
+                            file.name;
+
+                    }
+
+
+                    /* Aperçu */
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function (event) {
+
+                            if (photoPreview) {
+
+                                photoPreview.src =
+                                    event.target.result;
+
+                                photoPreview.style.display =
+                                    "block";
+
+                            }
+
+
+                            if (photoIcon) {
+
+                                photoIcon.style.display =
+                                    "none";
+
+                            }
+
+                        };
+
+
+                    reader.readAsDataURL(file);
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           COMPTEUR MOTIVATION
+        ========================================================== */
+
+        if (
+            motivation &&
+            motivationCount
+        ) {
+
+            motivation.addEventListener(
+                "input",
+                function () {
+
+                    motivationCount.textContent =
+                        this.value.length;
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           ENVOI DU FORMULAIRE
+        ========================================================== */
+
+        if (membershipForm) {
+
+            membershipForm.addEventListener(
+                "submit",
+                async function (event) {
+
+                    event.preventDefault();
+
+
+                    /* Cacher anciens messages */
+
+                    if (successMessage) {
+                        successMessage.classList.add(
+                            "d-none"
+                        );
+                    }
+
+                    if (errorMessage) {
+                        errorMessage.classList.add(
+                            "d-none"
+                        );
+                    }
+
+
+                    /* Validation Bootstrap */
+
+                    if (
+                        !membershipForm.checkValidity()
+                    ) {
+
+                        membershipForm.classList.add(
+                            "was-validated"
+                        );
+
+                        return;
+                    }
+
+
+                    /* Vérification photo */
+
+                    if (
+                        photoInput &&
+                        !photoInput.files.length
+                    ) {
+
+                        if (photoError) {
+
+                            photoError.textContent =
+                                "Veuillez sélectionner votre photo d'identité.";
+
+                            photoError.classList.remove(
+                                "d-none"
+                            );
+
+                        }
+
+                        photoInput.focus();
+
+                        return;
+                    }
+
+
+                    /* Désactivation bouton */
+
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                    }
+
+                    if (buttonText) {
+                        buttonText.classList.add(
+                            "d-none"
+                        );
+                    }
+
+                    if (buttonLoading) {
+                        buttonLoading.classList.remove(
+                            "d-none"
+                        );
+                    }
+
+
+                    try {
+
+                        /* FormData */
+
+                        const formData =
+                            new FormData(
+                                membershipForm
+                            );
+
+
+                        /* =================================================
+                           VERCEL
+                           Endpoint backend
+                        ================================================== */
+
+                        const response =
+                            await fetch(
+                                "/adhesion",
+                                {
+                                    method: "POST",
+                                    body: formData
+                                }
+                            );
+
+
+                        /* Vérification réponse */
+
+                        const contentType =
+                            response.headers.get(
+                                "content-type"
+                            ) || "";
+
+
+                        if (
+                            !contentType.includes(
+                                "application/json"
+                            )
+                        ) {
+
+                            throw new Error(
+                                "Le serveur n'a pas retourné une réponse JSON valide."
+                            );
+
+                        }
+
+
+                        const result =
+                            await response.json();
+
+
+                        if (
+                            !response.ok ||
+                            !result.success
+                        ) {
+
+                            throw new Error(
+                                result.message ||
+                                "Une erreur est survenue lors de l'envoi."
+                            );
+
+                        }
+
+
+                        /* Numéro */
+
+                        if (memberNumber) {
+
+                            memberNumber.textContent =
+                                result.numero ||
+                                "";
+
+                        }
+
+
+                        /* Message succès */
+
+                        if (successMessage) {
+
+                            successMessage.classList.remove(
+                                "d-none"
+                            );
+
+                        }
+
+
+                        /* Reset */
+
+                        membershipForm.reset();
+
+                        membershipForm.classList.remove(
+                            "was-validated"
+                        );
+
+
+                        /* Reset photo */
+
+                        if (photoPreview) {
+
+                            photoPreview.style.display =
+                                "none";
+
+                            photoPreview.src =
+                                "";
+
+                        }
+
+
+                        if (photoIcon) {
+
+                            photoIcon.style.display =
+                                "block";
+
+                        }
+
+
+                        if (photoName) {
+
+                            photoName.textContent =
+                                "";
+
+                        }
+
+
+                        if (photoError) {
+
+                            photoError.classList.add(
+                                "d-none"
+                            );
+
+                        }
+
+
+                        /* Reset motivation */
+
+                        if (motivationCount) {
+
+                            motivationCount.textContent =
+                                "0";
+
+                        }
+
+
+                        /* Scroll succès */
+
+                        if (successMessage) {
+
+                            successMessage.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+
+                        }
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Erreur CECRM :",
+                            error
+                        );
+
+
+                        if (errorText) {
+
+                            errorText.textContent =
+                                error.message ||
+                                "Impossible d'envoyer votre demande.";
+
+                        }
+
+
+                        if (errorMessage) {
+
+                            errorMessage.classList.remove(
+                                "d-none"
+                            );
+
+                            errorMessage.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+
+                        }
+
+
+                    } finally {
+
+                        /* Réactivation */
+
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                        }
+
+                        if (buttonText) {
+                            buttonText.classList.remove(
+                                "d-none"
+                            );
+                        }
+
+                        if (buttonLoading) {
+                            buttonLoading.classList.add(
+                                "d-none"
+                            );
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           COMPTEURS
+        ========================================================== */
+
+        const counters =
+            document.querySelectorAll(
+                ".counter"
+            );
+
+        let counterStarted = false;
+
+
+        function startCounters() {
+
+            if (
+                counterStarted ||
+                !document.querySelector(".stats")
+            ) {
+                return;
+            }
+
+
+            const statsSection =
+                document.querySelector(
+                    ".stats"
+                );
+
+
+            const position =
+                statsSection.getBoundingClientRect();
+
+
+            if (
+                position.top <
+                    window.innerHeight &&
+                position.bottom >= 0
+            ) {
+
+                counterStarted = true;
+
+
+                counters.forEach(
+                    counter => {
+
+                        const target =
+                            Number(
+                                counter.dataset.target ||
+                                0
+                            );
+
+
+                        let count = 0;
+
+
+                        const increment =
+                            Math.max(
+                                1,
+                                Math.ceil(
+                                    target / 80
+                                )
+                            );
+
+
+                        const timer =
+                            setInterval(
+                                () => {
+
+                                    count +=
+                                        increment;
+
+
+                                    if (
+                                        count >=
+                                        target
+                                    ) {
+
+                                        counter.textContent =
+                                            target;
+
+                                        clearInterval(
+                                            timer
+                                        );
+
+                                    } else {
+
+                                        counter.textContent =
+                                            count;
+
+                                    }
+
+                                },
+                                25
+                            );
+
+                    }
+                );
+
+            }
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            startCounters
+        );
+
+        startCounters();
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================== */
+
+        const backTop =
+            document.getElementById(
+                "backTop"
+            );
+
+
+        if (backTop) {
+
+            window.addEventListener(
+                "scroll",
+                function () {
+
+                    backTop.style.display =
+                        window.scrollY > 500
+                            ? "flex"
+                            : "none";
+
+                }
+            );
+
+
+            backTop.addEventListener(
+                "click",
+                function () {
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           FERMETURE MENU MOBILE
+        ========================================================== */
+
+        document
+            .querySelectorAll(
+                ".navbar .nav-link"
+            )
+            .forEach(
+                link => {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            const navbar =
+                                document.getElementById(
+                                    "mainNav"
+                                );
+
+
+                            if (
+                                navbar &&
+                                navbar.classList.contains(
+                                    "show"
+                                )
+                            ) {
+
+                                new bootstrap.Collapse(
+                                    navbar
+                                ).hide();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
